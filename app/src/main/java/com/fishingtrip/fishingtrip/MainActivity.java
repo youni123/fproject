@@ -90,8 +90,9 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            //To do
-            Toast.makeText(MainActivity.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, Feedback.class);
+            startActivity(intent);
             return true;
         }
 
@@ -105,9 +106,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_developer) {
-            // Handle the camera action
-        } else if (id == R.id.nav_settings) {
+            // Handle developer activity
+            Intent intent_dev = new Intent(MainActivity.this, DrawerDeveloper.class);
+            startActivity(intent_dev);
 
+        } else if (id == R.id.nav_settings) {
+            //Handle setting activity
+            Intent intent_set = new Intent(MainActivity.this, DrawerSettings.class);
+            startActivity(intent_set);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

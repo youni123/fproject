@@ -1,6 +1,10 @@
 package com.fishingtrip.fishingtrip;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +14,15 @@ public class MenuDayPlan extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_dayplan);
+
+        //Add back button to ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
+        //make transparent to ActionBar
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
+        actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
     }
 
     @Override
@@ -27,8 +40,9 @@ public class MenuDayPlan extends AppCompatActivity{
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            //To do
-            Toast.makeText(MenuDayPlan.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MenuDayPlan.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MenuDayPlan.this, Feedback.class);
+            startActivity(intent);
             return true;
         }
 

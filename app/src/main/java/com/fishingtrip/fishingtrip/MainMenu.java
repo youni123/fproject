@@ -134,8 +134,9 @@ public class MainMenu extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            //To do
-            Toast.makeText(MainMenu.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainMenu.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainMenu.this, Feedback.class);
+            startActivity(intent);
             return true;
         }
 

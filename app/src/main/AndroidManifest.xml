@@ -66,6 +66,24 @@
                 android:value=".MainMenu"/>
         </activity>
 
+        <activity android:name=".DrawerDeveloper">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainMenu"/>
+        </activity>
+
+        <activity android:name=".DrawerSettings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainMenu"/>
+        </activity>
+
+        <activity android:name=".Feedback">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainMenu"/>
+        </activity>
+
     </application>
 
 </manifest>

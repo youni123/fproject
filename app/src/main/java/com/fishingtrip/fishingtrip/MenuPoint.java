@@ -1,5 +1,6 @@
 package com.fishingtrip.fishingtrip;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -40,8 +41,9 @@ public class MenuPoint  extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            //To do
-            Toast.makeText(MenuPoint.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MenuPoint.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MenuPoint.this, Feedback.class);
+            startActivity(intent);
             return true;
         }
 

@@ -15,15 +15,13 @@ public class MenuPoint  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_point);
 
-        //Add back button to ActionBar
+        //ActionBar setting
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
         //make transparent to ActionBar
-        actionBar.setDisplayShowTitleEnabled(false);
-        //actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
-        //actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
-
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setTitle("Point");
     }
 
     @Override

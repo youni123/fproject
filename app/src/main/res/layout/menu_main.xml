@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<com.fishingtrip.fishingtrip.NotifyingScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_view"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -10,8 +13,15 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:id="@+id/fragment_menu">
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/fragment_menu"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient"/>
         </FrameLayout>
 
         <LinearLayout
@@ -137,4 +147,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</com.fishingtrip.fishingtrip.NotifyingScrollView>

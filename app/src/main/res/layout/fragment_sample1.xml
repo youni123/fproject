@@ -6,7 +6,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment Picture#1"
+        android:text="Picture"
+        android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:background="#263238"
         android:gravity="center"/>

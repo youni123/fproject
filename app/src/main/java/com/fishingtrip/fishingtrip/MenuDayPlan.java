@@ -21,8 +21,8 @@ public class MenuDayPlan extends AppCompatActivity{
         actionBar.setHomeButtonEnabled(true);
         //make transparent to ActionBar
         actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
-        actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
+        //actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
+        //actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
     }
 
     @Override

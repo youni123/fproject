@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainMenu">
+        <activity android:name=".MainMenu"
+            android:theme="@style/TransparentActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>

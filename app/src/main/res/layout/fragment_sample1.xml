@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:text="Fragment Picture#1"
         android:textSize="20dp"
-        android:background="#FFFF77"
+        android:background="#263238"
         android:gravity="center"/>
 
 </LinearLayout>

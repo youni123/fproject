@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#FAFAFA</color>
+    <color name="colorPrimaryDark">#9E9E9E</color>
+    <color name="colorAccent">#FF6D00</color>
     <color name="toolbar_color_dark">#333333</color>
+    <color name="navigationBar">#333333</color>
+    <color name="controlHighlight">#212121</color>
+    <color name="controlNormal">#424242</color>
+    <color name="main_appbar_text">#212121</color>
+    <color name="background">#E0E0E0</color>
 </resources>

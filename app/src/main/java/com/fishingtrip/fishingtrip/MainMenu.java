@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,19 +17,21 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ScrollView;
 
 public class MainMenu extends AppCompatActivity {
+    private Drawable mActionBarBackgroundDrawable;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_main);
 
-        //안면도 이미지 Fragment
+        /*안면도 이미지 Fragment*/
         FragmentManager fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         FragmentSample1 fs1 = new FragmentSample1();
         fragmentTransaction.add(R.id.fragment_menu, fs1,"test");
         fragmentTransaction.commit();
-
 
         //Add back button to ActionBar
         ActionBar actionBar = getSupportActionBar();
@@ -36,9 +39,6 @@ public class MainMenu extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         //make transparent to ActionBar
         actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
-        actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000ff")));
-
 
         //메뉴 선택
         TextView tv_reservation = (TextView)findViewById(R.id.menu_reserv);
@@ -117,6 +117,7 @@ public class MainMenu extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     @Override

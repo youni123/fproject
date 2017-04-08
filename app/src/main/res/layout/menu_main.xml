@@ -1,131 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/fragment_menu">
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:id="@+id/fragment_menu">
-            </FrameLayout>
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_weight="1">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_height="150dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Reservation"
+                    android:id="@+id/menu_reserv"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/round_resev"
+                    android:clickable="true"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_margin="5dp"
-                        android:text="Reservation"
-                        android:id="@+id/menu_reserv"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#6D4C41"
-                        android:clickable="true"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="230dp"
-                        android:layout_margin="5dp"
-                        android:text="Saved Places"
-                        android:id="@+id/menu_save"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#00897B"
-                        android:clickable="true"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="160dp"
-                        android:layout_margin="5dp"
-                        android:text="Information"
-                        android:id="@+id/menu_info"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#00ACC1"
-                        android:clickable="true"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_margin="5dp"
-                        android:text="TIPs"
-                        android:id="@+id/menu_tips"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#7E24AA"
-                        android:clickable="true"/>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_height="230dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Saved Places"
+                    android:id="@+id/menu_save"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/round_save"
+                    android:clickable="true"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_margin="5dp"
-                        android:text="Point"
-                        android:id="@+id/menu_point"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#7CB342"
-                        android:clickable="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Information"
+                    android:id="@+id/menu_info"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/round_info"
+                    android:clickable="true"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_margin="5dp"
-                        android:text="Day Plan"
-                        android:id="@+id/menu_plan"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#AB47BC"
-                        android:clickable="true"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="220dp"
-                        android:layout_margin="5dp"
-                        android:text="Weather"
-                        android:id="@+id/menu_weather"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:background="#007688"
-                        android:clickable="true"/>
-                </LinearLayout>
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="TIPs"
+                    android:id="@+id/menu_tips"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/round_tips"
+                    android:clickable="true"/>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Point"
+                    android:id="@+id/menu_point"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/round_point"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Day Plan"
+                    android:id="@+id/menu_plan"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/round_plan"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Weather"
+                    android:id="@+id/menu_weather"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/round_weather"
+                    android:clickable="true"/>
+            </LinearLayout>
         </LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

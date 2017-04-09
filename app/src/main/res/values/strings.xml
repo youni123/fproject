@@ -5,4 +5,9 @@
     <string name="action_feedback">Feedback</string>
     <string name="action_send">Send</string>
 
+    <string name="name_hs">Hwasub Lee</string>
+    <string name="name_sy">Sangyoun Youn</string>
+    <string name="name_dh">Donghyun Moon</string>
+    <string name="name_sj">Sungjin Sim</string>
+
 </resources>

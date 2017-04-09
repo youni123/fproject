@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter{
-    private ArrayList<ListViewDestination> listViewDestList = new ArrayList<ListViewDestination>();
+    private ArrayList<ListViewItem> listViewList = new ArrayList<ListViewItem>();
 
     public ListViewAdapter(){
 
@@ -20,7 +20,7 @@ public class ListViewAdapter extends BaseAdapter{
 
     //override
     public int getCount(){
-        return listViewDestList.size();
+        return listViewList.size();
     }
 
     //override
@@ -33,14 +33,14 @@ public class ListViewAdapter extends BaseAdapter{
             convertView = inflater.inflate(R.layout.listview_destination, parent, false);
         }
 
-        ImageView destImageView = (ImageView)convertView.findViewById(R.id.cm_img_dest);
-        TextView destTextView = (TextView)convertView.findViewById(R.id.cm_dest);
-        TextView locTextView = (TextView)convertView.findViewById(R.id.cm_loc);
+        ImageView iconImageView = (ImageView)convertView.findViewById(R.id.cm_img_dest);
+        TextView titleTextView = (TextView)convertView.findViewById(R.id.cm_dest);
+        TextView descTextView = (TextView)convertView.findViewById(R.id.cm_loc);
 
-        ListViewDestination listViewDest = listViewDestList.get(position);
-        destImageView.setImageDrawable(listViewDest.getDestDrawable());
-        destTextView.setText(listViewDest.getDest());
-        locTextView.setText(listViewDest.getLoc());
+        ListViewItem listViewDest = listViewList.get(position);
+        iconImageView.setImageDrawable(listViewDest.getIcon());
+        titleTextView.setText(listViewDest.getTitle());
+        descTextView.setText(listViewDest.getDesc());
 
         return convertView;
     }
@@ -52,17 +52,17 @@ public class ListViewAdapter extends BaseAdapter{
 
     //override
     public Object getItem(int position){
-        return listViewDestList.get(position);
+        return listViewList.get(position);
     }
 
-    public void addItem(Drawable image, String dest, String loc){
-        ListViewDestination item = new ListViewDestination();
+    public void addItem(Drawable icon, String title, String description){
+        ListViewItem item = new ListViewItem();
 
-        item.setDestDrawable(image);
-        item.setDest(dest);
-        item.setLoc(loc);
+        item.setIcon(icon);
+        item.setTitle(title);
+        item.setDesc(description);
 
-        listViewDestList.add(item);
+        listViewList.add(item);
     }
 
 }

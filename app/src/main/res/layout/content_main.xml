@@ -5,17 +5,28 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_gravity="center_horizontal"
-        android:text="Map" />
+        android:background="#00B0FF"
+        android:text="Put the Map here!"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_content_main"/>
+        android:id="@+id/list_content_main"
+        android:layout_margin="2dp">
+    </ListView>
 
-
-
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/list_shadow">
+    </View>
 
 </LinearLayout>

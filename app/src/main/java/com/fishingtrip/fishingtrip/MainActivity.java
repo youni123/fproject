@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-                ListViewDestination item = (ListViewDestination)parent.getItemAtPosition(position);
-                Drawable destDrawable = item.getDestDrawable();
-                String destStr = item.getDest();
-                String locStr = item.getLoc();
+                ListViewItem item = (ListViewItem) parent.getItemAtPosition(position);
+                Drawable destDrawable = item.getIcon();
+                String destStr = item.getTitle();
+                String locStr = item.getDesc();
 
                 //TO DO: use item data
                 Intent intent = new Intent(MainActivity.this, MainMenu.class);

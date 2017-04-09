@@ -3,11 +3,16 @@ package com.fishingtrip.fishingtrip;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class DrawerDeveloper extends AppCompatActivity {
@@ -22,6 +27,42 @@ public class DrawerDeveloper extends AppCompatActivity {
         //make transparent to ActionBar
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Developer");
+
+        ListView listview ;
+        ListViewAdapter_developer adapter;
+
+        //Adapter 생성
+        adapter = new ListViewAdapter_developer() ;
+
+        //리스트뷰 참조 및 Adapter 달기
+        listview = (ListView) findViewById(R.id.list_developer);
+        listview.setAdapter(adapter);
+
+        //개발자 추가.
+        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_email_black_24dp),getString(R.string.name_hs), "Director&Developer") ;
+        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_email_black_24dp),getString(R.string.name_sj), "Producer&Tester") ;
+        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_email_black_24dp),getString(R.string.name_sy), "Developer") ;
+        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_email_black_24dp),getString(R.string.name_dh), "Developer") ;
+
+        //개발자 선택시 메일 발송
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                //get item
+                ListViewItem item = (ListViewItem) parent.getItemAtPosition(position) ;
+                String titleStr = item.getTitle() ;
+                //To do here!!
+                if(titleStr == getString(R.string.name_hs)){
+
+                }else if(titleStr == getString(R.string.name_sj)){
+
+                }else if(titleStr == getString(R.string.name_sy)){
+
+                }else if(titleStr == getString(R.string.name_dh)){
+
+                }
+            }
+        }) ;
 
     }
 

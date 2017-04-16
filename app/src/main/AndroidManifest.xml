@@ -25,43 +25,50 @@
                 android:value=".MainActivity"/>
         </activity>
 
-        <activity android:name=".MenuReservation">
+        <activity android:name=".MenuReservation"
+            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
-        <activity android:name=".MenuPoint">
+        <activity android:name=".MenuPoint"
+            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
-        <activity android:name=".MenuSave">
+        <activity android:name=".MenuSave"
+            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
-        <activity android:name=".MenuDayPlan">
+        <activity android:name=".MenuDayPlan"
+            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
-        <activity android:name=".MenuInfo">
+        <activity android:name=".MenuInfo"
+            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
-        <activity android:name=".MenuWeather">
+        <activity android:name=".MenuWeather"
+            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
-        <activity android:name=".MenuTips">
+        <activity android:name=".MenuTips"
+            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>

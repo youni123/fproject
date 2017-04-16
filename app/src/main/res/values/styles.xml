@@ -30,4 +30,10 @@
         <item name="windowActionBarOverlay">true</item>
     </style>
 
+    <style name="AppTheme.ActionBar.Transparent.DarkText" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
 </resources>

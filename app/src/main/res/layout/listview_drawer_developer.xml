@@ -22,18 +22,20 @@
         android:layout_weight="10">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:id="@+id/dev_name"
-            android:gravity="left"
+            android:gravity="center_vertical"
+            android:textSize="15dp"
             android:layout_gravity="left"
             android:layout_weight="1"
             android:layout_marginLeft="5dp"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:id="@+id/dev_role"
             android:gravity="right"
-            android:layout_gravity="right"
+            android:textSize="15dp"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"/>
     </LinearLayout>
 

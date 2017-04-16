@@ -22,7 +22,9 @@ import android.widget.ScrollView;
 
 
 public class MainMenu extends AppCompatActivity {
+    //[START] Fading action bar
     private Drawable mActionBarBackgroundDrawable;
+    //[END] Fading action bar
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,15 +41,17 @@ public class MainMenu extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setTitle("안면도 낚시여행");
 
-        //fading action bar
+        //[START] Fading action bar
         mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.ab_background);
         mActionBarBackgroundDrawable.setAlpha(0);
 
         actionBar.setBackgroundDrawable(mActionBarBackgroundDrawable);
 
         ((NotifyingScrollView) findViewById(R.id.scroll_view)).setOnScrollChangedListener(mOnScrollChangedListener);
+        //[END] Fading action bar
 
         //메뉴 선택
         TextView tv_reservation = (TextView)findViewById(R.id.menu_reserv);
@@ -127,6 +131,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
+        //[START] Fading action bar
         /* https://cyrilmottier.com/2013/05/24/pushing-the-actionbar-to-the-next-level/
          This fading action bar code above doesn’t work for pre-JELLY_BEAN_MR1 devices.
          Indeed, the ActionBar isn’t invalidating itself when required because it isn’t registering itself as the Drawable’s callback.
@@ -150,19 +155,24 @@ public class MainMenu extends AppCompatActivity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
             mActionBarBackgroundDrawable.setCallback(mDrawableCallback);
         }
-
+        //[END] Fading action bar
     }
 
-    //fading action bar
+    //[START] Fading action bar
     private NotifyingScrollView.OnScrollChangedListener mOnScrollChangedListener = new NotifyingScrollView.OnScrollChangedListener() {
         public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt) {
-            //final int headerHeight = findViewById(R.id.fragment_menu).getHeight() - getActionBar().getHeight();
-            final int headerHeight = 800;
+            final int headerHeight = findViewById(R.id.fragment_menu).getHeight() - getSupportActionBar().getHeight();
             final float ratio = (float) Math.min(Math.max(t, 0), headerHeight) / headerHeight;
-            final int newAlpha = (int) (ratio * 255);
-            mActionBarBackgroundDrawable.setAlpha(newAlpha);
+
+            if(ratio >= 1.0){
+                mActionBarBackgroundDrawable.setAlpha(255);
+            }
+            else{
+                mActionBarBackgroundDrawable.setAlpha(0);
+            }
         }
     };
+    //[END] Fading action bar
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

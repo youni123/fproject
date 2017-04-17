@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal"
-        android:background="#00B0FF"
-        android:text="Put the Map here!"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp" />
-
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_content_main"
-        android:layout_margin="2dp">
-    </ListView>
+        android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@drawable/list_shadow">
-    </View>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="65dp" />
 
-</LinearLayout>
+        <!--
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list_content_main"/>
+         -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+            <android.support.v7.widget.RecyclerView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:id="@+id/main_dest_rv">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

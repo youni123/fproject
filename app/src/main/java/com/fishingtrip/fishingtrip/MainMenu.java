@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ScrollView;
 
+import static com.fishingtrip.fishingtrip.R.id.toolbar;
+
 
 public class MainMenu extends AppCompatActivity {
     //[START] Fading action bar
@@ -166,6 +168,8 @@ public class MainMenu extends AppCompatActivity {
 
             if(ratio >= 1.0){
                 mActionBarBackgroundDrawable.setAlpha(255);
+                //toolbar color 변경을 programatical 하기 위한 Tip
+                //https://snow.dog/blog/how-to-dynamicaly-change-android-toolbar-icons-color/
             }
             else{
                 mActionBarBackgroundDrawable.setAlpha(0);

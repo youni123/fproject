@@ -58,30 +58,6 @@ public class MainActivity extends AppCompatActivity
         destinationSet.add(new MyData("안면도", "충남 태안군 안면읍", R.drawable.ic_test_transparent_24dp));
         //[END]CardView
 
-        /*
-        ListView listview;
-        ListViewAdapter adapter;
-
-        adapter = new ListViewAdapter();
-        listview = (ListView) findViewById(R.id.list_content_main);
-        listview.setAdapter(adapter);
-
-        //여기서 지역 추가
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_directions_boat_black_24dp), "안면도", "충남 태안군 안면읍");
-
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-                ListViewItem item = (ListViewItem) parent.getItemAtPosition(position);
-                Drawable destDrawable = item.getIcon();
-                String destStr = item.getTitle();
-                String locStr = item.getDesc();
-
-                //TO DO: use item data
-                Intent intent = new Intent(MainActivity.this, MainMenu.class);
-                startActivity(intent);
-            }
-        }); */
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -18,78 +18,85 @@
             </intent-filter>
         </activity>
 
+        <!-- A child of the main activity -->
         <activity android:name=".MainMenu"
-            android:theme="@style/AppTheme.ActionBar.Transparent">
+            android:theme="@style/AppTheme.DarkActionBar.Transparent"
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainActivity" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
 
         <activity android:name=".MenuReservation"
-            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainMenu" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
         <activity android:name=".MenuPoint"
-            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainMenu" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
         <activity android:name=".MenuSave"
-            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainMenu" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
         <activity android:name=".MenuDayPlan"
-            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainMenu" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
         <activity android:name=".MenuInfo"
-            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainMenu" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
         <activity android:name=".MenuWeather"
-            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainMenu" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
         <activity android:name=".MenuTips"
-            android:theme="@style/AppTheme.ActionBar.Transparent.DarkText">
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainMenu" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenu"/>
         </activity>
 
-        <activity android:name=".DrawerDeveloper">
+        <activity android:name=".DrawerDeveloper"
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainMenu"/>
+                android:value=".MainActivity"/>
         </activity>
 
-        <activity android:name=".DrawerSettings">
+        <activity android:name=".DrawerSettings"
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainMenu"/>
+                android:value=".MainActivity"/>
         </activity>
 
-        <activity android:name=".Feedback">
+        <activity android:name=".Feedback"
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainMenu"/>
+                android:value=".MainActivity"/>
         </activity>
 
     </application>

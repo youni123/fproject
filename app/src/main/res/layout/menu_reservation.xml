@@ -1,28 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.fishingtrip.fishingtrip.NotifyingScrollView
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scroll_view_reserv"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    tools:context="com.fishingtrip.fishingtrip.MenuReservation">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="64dp">
+
+            <ImageView
+                android:id="@+id/header_image_reserv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                android:src="#FFFFFF"
+                app:layout_collapseMode="parallax"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_reserv"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/AppTheme.LightActionBar.Transparent"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:layout_collapseMode="pin" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Put the header image here-->
-        <ImageView
-            android:id="@+id/header_image_reserv"
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout_reserv"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="#FFFFFF"/>
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/AppTheme" />
 
-        <TextView
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager_reserv"
             android:layout_width="match_parent"
-            android:layout_height="1000dp"
-            android:layout_margin="10dp"
-            android:text="Add contents"/>
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 
-</com.fishingtrip.fishingtrip.NotifyingScrollView>
+</android.support.design.widget.CoordinatorLayout>

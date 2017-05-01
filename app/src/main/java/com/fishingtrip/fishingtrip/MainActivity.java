@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<MyData> destinationSet;
-
+    private ArrayList<DestinationData> destinationSet;
     //[END]CardView
 
     @Override
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         mRecyclerView.setAdapter(mAdapter);
 
         //여기에서 추가
-        destinationSet.add(new MyData("안면도", "충남 태안군 안면읍", R.drawable.ic_test_transparent_24dp));
+        destinationSet.add(new DestinationData("안면도", "충남 태안군 안면읍", R.drawable.ic_test_transparent_24dp));
         //[END]CardView
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -122,7 +121,11 @@ public class MainActivity extends AppCompatActivity
             //Handle setting activity
             Intent intent_set = new Intent(MainActivity.this, DrawerSettings.class);
             startActivity(intent_set);
+        } else if (id == R.id.nav_share) {
+            Toast.makeText(this, "Not implemented yet", Toast.LENGTH_SHORT).show();
         }
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

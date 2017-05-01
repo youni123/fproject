@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,10 +22,11 @@ public class DrawerDeveloper extends AppCompatActivity {
         setContentView(R.layout.drawer_developer);
 
         //Add back button to ActionBar
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar_developer);
+        setSupportActionBar(toolbar);
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
-        //make transparent to ActionBar
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Developer");
 

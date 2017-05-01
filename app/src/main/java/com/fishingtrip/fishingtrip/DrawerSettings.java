@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -15,10 +16,11 @@ public class DrawerSettings extends AppCompatActivity {
         setContentView(R.layout.drawer_settings);
 
         //Add back button to ActionBar
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar_settings);
+        setSupportActionBar(toolbar);
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
-        //make transparent to ActionBar
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Settings");
 

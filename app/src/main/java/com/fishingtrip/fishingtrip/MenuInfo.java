@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ScrollView;
@@ -22,15 +23,18 @@ public class MenuInfo extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_info);
 
-        //ActionBar setting
+        //Set up toolbar as actionbar - toolbar is defined in the layout file
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar_info);
+        setSupportActionBar(toolbar);
+        //Get a support ActionBar corresponding to this toolbar
         ActionBar actionBar = getSupportActionBar();
+        //// Enable the Up button
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Information");
 
         //[START] Fading action bar
-        mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.ab_background);
+        mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.ab_light_bg);
         mActionBarBackgroundDrawable.setAlpha(0);
 
         actionBar.setBackgroundDrawable(mActionBarBackgroundDrawable);

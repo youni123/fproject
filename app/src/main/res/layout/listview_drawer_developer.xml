@@ -33,9 +33,9 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:id="@+id/dev_role"
-            android:gravity="right"
+            android:gravity="center_vertical"
             android:textSize="15dp"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="right"
             android:layout_weight="1"/>
     </LinearLayout>
 

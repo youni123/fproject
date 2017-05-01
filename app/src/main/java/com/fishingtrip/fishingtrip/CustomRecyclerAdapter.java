@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAdapter.ViewHolder> {
-    private ArrayList<MyData> mDataset;
+    private ArrayList<DestinationData> mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -34,7 +34,7 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CustomRecyclerAdapter(ArrayList<MyData> myDataset) {
+    public CustomRecyclerAdapter(ArrayList<DestinationData> myDataset) {
         mDataset = myDataset;
     }
 
@@ -76,11 +76,11 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
     }
 }
 
-class MyData{
+class DestinationData{
     public String destination;
     public String detail;
     public int img;
-    public MyData(String text_dest, String text_detail, int img){
+    public DestinationData(String text_dest, String text_detail, int img){
         this.destination = text_dest;
         this.detail = text_detail;
         this.img = img;

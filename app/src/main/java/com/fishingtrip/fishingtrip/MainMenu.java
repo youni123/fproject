@@ -47,7 +47,7 @@ public class MainMenu extends AppCompatActivity {
         actionBar.setTitle("안면도 낚시여행");
 
         //[START] Fading action bar
-        mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.ab_background);
+        mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.ab_dark_bg);
         mActionBarBackgroundDrawable.setAlpha(0);
 
         actionBar.setBackgroundDrawable(mActionBarBackgroundDrawable);
@@ -168,8 +168,6 @@ public class MainMenu extends AppCompatActivity {
 
             if(ratio >= 1.0){
                 mActionBarBackgroundDrawable.setAlpha(255);
-                //toolbar color 변경을 programatical 하기 위한 Tip
-                //https://snow.dog/blog/how-to-dynamicaly-change-android-toolbar-icons-color/
             }
             else{
                 mActionBarBackgroundDrawable.setAlpha(0);
@@ -193,7 +191,6 @@ public class MainMenu extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            //Toast.makeText(MainMenu.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainMenu.this, Feedback.class);
             startActivity(intent);
             return true;
@@ -201,9 +198,4 @@ public class MainMenu extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void swapFragment(){
-        //To do
-    }
-
 }

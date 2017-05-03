@@ -30,6 +30,7 @@ public class DrawerDeveloper extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Developer");
 
+        //Recycle view 로 변경할 것!
         ListView listview ;
         ListViewAdapter_developer adapter;
 

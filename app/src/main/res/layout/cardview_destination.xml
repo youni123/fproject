@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        card:cardCornerRadius="3dp"
-        card_view:cardElevation="3dp"
+        card:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
         android:id="@+id/main_dest_cv">
 
         <LinearLayout
@@ -33,17 +33,19 @@
                 android:textStyle="bold"
                 android:textSize="18dp"
                 android:textColor="#424242"
-                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="8dp"
                 android:background="#FFFFFF"/>
 
             <TextView
                 android:id="@+id/cv_dest_text_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="10dp"
+                android:textSize="13dp"
                 android:textColor="#9E9E9E"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="10dp"
                 android:background="#FFFFFF"/>
 
         </LinearLayout>

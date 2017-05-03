@@ -42,15 +42,16 @@ public class MenuReservation  extends AppCompatActivity{
         tabLayout.addTab(tabLayout.newTab().setText("저수지"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        // Initializing ViewPager
+        //Initializing ViewPager
         viewPager = (ViewPager) findViewById(R.id.pager_reserv);
 
-        // Creating TabPagerAdapter adapter
-        TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        //Creating TabPagerAdapter adapter
+        String selectedMenu = "Reservation";
+        TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), selectedMenu);
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
-        // Set TabSelectedListener
+        //Set TabSelectedListener
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override

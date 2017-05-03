@@ -50,13 +50,6 @@
                 android:value=".MainMenu"/>
         </activity>
 
-        <activity android:name=".MenuDayPlan"
-            android:parentActivityName="com.fishingtrip.fishingtrip.MainMenu" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainMenu"/>
-        </activity>
-
         <activity android:name=".MenuInfo"
             android:parentActivityName="com.fishingtrip.fishingtrip.MainMenu" >
             <meta-data

@@ -27,7 +27,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="24dp">
         </LinearLayout>
 
         <LinearLayout
@@ -43,7 +43,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="170dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp"
@@ -57,7 +57,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="230dp"
+                    android:layout_height="200dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp"
@@ -71,7 +71,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="220dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp"
@@ -81,6 +81,42 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@drawable/round_info"
+                    android:clickable="true"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Point"
+                    android:id="@+id/menu_point"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/round_point"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Weather"
+                    android:id="@+id/menu_weather"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/round_weather"
                     android:clickable="true"/>
 
                 <TextView
@@ -96,56 +132,11 @@
                     android:gravity="center"
                     android:background="@drawable/round_tips"
                     android:clickable="true"/>
+
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Point"
-                    android:id="@+id/menu_point"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_point"
-                    android:clickable="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Day Plan"
-                    android:id="@+id/menu_plan"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_plan"
-                    android:clickable="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Weather"
-                    android:id="@+id/menu_weather"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_weather"
-                    android:clickable="true"/>
-            </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
+
 </com.fishingtrip.fishingtrip.NotifyingScrollView>

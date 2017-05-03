@@ -6,10 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-public class Fragment_MenuTabRiver  extends Fragment {
+public class Fragment_MenuReserv_TabReservoir extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_menu_tab_river, container, false);
+        return inflater.inflate(R.layout.fragment_menu_reserv_tab_reservoir, container, false);
     }
 }

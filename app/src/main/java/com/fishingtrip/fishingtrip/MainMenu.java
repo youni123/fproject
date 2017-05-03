@@ -89,17 +89,6 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        TextView tv_plan = (TextView)findViewById(R.id.menu_plan);
-        tv_plan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(v.isClickable()){
-                    Intent intent = new Intent(MainMenu.this, MenuDayPlan.class);
-                    startActivity(intent);
-                }
-            }
-        });
-
         TextView tv_info = (TextView)findViewById(R.id.menu_info);
         tv_info.setOnClickListener(new View.OnClickListener() {
             @Override

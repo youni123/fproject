@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Fragment_MenuTabFloatel extends Fragment {
-        @Override
+public class Fragment_MenuWeather_TabTen extends Fragment {
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_menu_tab_floatel, container, false);
+        return inflater.inflate(R.layout.fragment_menu_weather_tab_ten, container, false);
     }
 }

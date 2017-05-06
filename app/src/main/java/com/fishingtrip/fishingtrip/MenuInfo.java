@@ -28,8 +28,9 @@ public class MenuInfo extends AppCompatActivity{
         setSupportActionBar(toolbar);
         //Get a support ActionBar corresponding to this toolbar
         ActionBar actionBar = getSupportActionBar();
-        //// Enable the Up button
+        //Enable the Up button
         actionBar.setDisplayHomeAsUpEnabled(true);
+        //Set the title in appbar
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Information");
 

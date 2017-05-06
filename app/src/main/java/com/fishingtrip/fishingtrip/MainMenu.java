@@ -32,17 +32,14 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_main);
 
-        /*안면도 이미지 Fragment*/
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        FragmentSample1 fs1 = new FragmentSample1();
-        fragmentTransaction.add(R.id.fragment_menu, fs1,"test");
-        fragmentTransaction.commit();
-
-        //Add back button to ActionBar
+        //Set up toolbar as actionbar - toolbar is defined in the layout file
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar_main_menu);
+        setSupportActionBar(toolbar);
+        //Get a support ActionBar corresponding to this toolbar
         ActionBar actionBar = getSupportActionBar();
+        //Enable the Up button
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        //Set the title in appbar
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("안면도 낚시여행");
 
@@ -52,7 +49,7 @@ public class MainMenu extends AppCompatActivity {
 
         actionBar.setBackgroundDrawable(mActionBarBackgroundDrawable);
 
-        ((NotifyingScrollView) findViewById(R.id.scroll_view)).setOnScrollChangedListener(mOnScrollChangedListener);
+        ((NotifyingScrollView) findViewById(R.id.scroll_main_menu)).setOnScrollChangedListener(mOnScrollChangedListener);
         //[END] Fading action bar
 
         //메뉴 선택
@@ -152,7 +149,7 @@ public class MainMenu extends AppCompatActivity {
     //[START] Fading action bar
     private NotifyingScrollView.OnScrollChangedListener mOnScrollChangedListener = new NotifyingScrollView.OnScrollChangedListener() {
         public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt) {
-            final int headerHeight = findViewById(R.id.fragment_menu).getHeight() - getSupportActionBar().getHeight();
+            final int headerHeight = findViewById(R.id.menu_pic_amd).getHeight() - getSupportActionBar().getHeight();
             final float ratio = (float) Math.min(Math.max(t, 0), headerHeight) / headerHeight;
 
             if(ratio >= 1.0){

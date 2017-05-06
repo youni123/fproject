@@ -31,6 +31,7 @@ public class MenuReservation  extends AppCompatActivity{
         ActionBar actionBar = getSupportActionBar();
         //Enable the Up button
         actionBar.setDisplayHomeAsUpEnabled(true);
+        //Set the title in appbar
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Reservation");
 

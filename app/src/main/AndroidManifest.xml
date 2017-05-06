@@ -20,7 +20,6 @@
 
         <!-- A child of the main activity -->
         <activity android:name=".MainMenu"
-            android:theme="@style/AppTheme.DarkActionBar.Transparent"
             android:parentActivityName="com.fishingtrip.fishingtrip.MainActivity" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->

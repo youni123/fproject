@@ -16,13 +16,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp">
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
             <android.support.v7.widget.RecyclerView
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:id="@+id/main_dest_rv">
+                android:id="@+id/main_dest_amd">
             </android.support.v7.widget.RecyclerView>
+
         </LinearLayout>
 
     </LinearLayout>

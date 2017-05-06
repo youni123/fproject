@@ -1,142 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.fishingtrip.fishingtrip.NotifyingScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scroll_view"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_main_menu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/AppTheme.AppBarOverlay.LightText"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-        <!-- Image View 로 교체-->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:id="@+id/fragment_menu"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/gradient"/>
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="24dp">
-        </LinearLayout>
+    <com.fishingtrip.fishingtrip.NotifyingScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scroll_main_menu"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <!-- Image View 로 교체-->
+            <ImageView
+                android:id="@+id/menu_pic_amd"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#009688"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Reservation"
-                    android:id="@+id/menu_reserv"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_resev"
-                    android:clickable="true"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
 
-                <TextView
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Reservation"
+                        android:id="@+id/menu_reserv"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/round_resev"
+                        android:clickable="true"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Saved Places"
+                        android:id="@+id/menu_save"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/round_save"
+                        android:clickable="true"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Information"
+                        android:id="@+id/menu_info"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/round_info"
+                        android:clickable="true"/>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Saved Places"
-                    android:id="@+id/menu_save"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_save"
-                    android:clickable="true"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Information"
-                    android:id="@+id/menu_info"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_info"
-                    android:clickable="true"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Point"
+                        android:id="@+id/menu_point"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/round_point"
+                        android:clickable="true"/>
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Weather"
+                        android:id="@+id/menu_weather"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/round_weather"
+                        android:clickable="true"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="TIPs"
+                        android:id="@+id/menu_tips"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/round_tips"
+                        android:clickable="true"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Point"
-                    android:id="@+id/menu_point"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_point"
-                    android:clickable="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Weather"
-                    android:id="@+id/menu_weather"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_weather"
-                    android:clickable="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="TIPs"
-                    android:id="@+id/menu_tips"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_tips"
-                    android:clickable="true"/>
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </com.fishingtrip.fishingtrip.NotifyingScrollView>
 
-</com.fishingtrip.fishingtrip.NotifyingScrollView>
+</android.support.design.widget.CoordinatorLayout>

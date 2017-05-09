@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "601890545026",
+    "project_id": "firebase-fproject"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601890545026:android:341ea8b88600291b",
+        "android_client_info": {
+          "package_name": "com.fishingtrip.fishingtrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601890545026-nmdf32aiv3rj0qvgij773qmvdag8dpmc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fishingtrip.fishingtrip",
+            "certificate_hash": "b258ab9375af7239e87f3390e691244a90d8a8ae"
+          }
+        },
+        {
+          "client_id": "601890545026-tpqidjn7sclq20qofd6v45lj93idv5vn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBizFKUZsFG6Ilsgw9a1RHyRMuTT8gXcCU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

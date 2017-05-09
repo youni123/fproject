@@ -1,14 +1,9 @@
 package com.fishingtrip.fishingtrip;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,11 +12,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+
 import java.util.ArrayList;
+
+import static android.R.attr.data;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,6 +32,11 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<DestinationData> destinationSet;
     //[END]CardView
+
+    //For user profile
+    private UserProfileInfo upi = new UserProfileInfo();
+    private TextView mUserName;
+    private TextView mUserEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +74,15 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //Get profile information and Set user information in navigation header
+        upi = (UserProfileInfo)getIntent().getSerializableExtra("profile");
+        if(upi != null){
+            View nav_header_main = navigationView.getHeaderView(0);
+            mUserName = (TextView)nav_header_main.findViewById(R.id.nav_header_name);
+            mUserName.setText(upi.getPersonDisplayName());
+            mUserEmail = (TextView)nav_header_main.findViewById(R.id.nav_header_email);
+            mUserEmail.setText(upi.getPersonEmail());
+        }
     }
 
     @Override

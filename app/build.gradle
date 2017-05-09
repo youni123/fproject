@@ -30,4 +30,9 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:+'
     compile 'com.android.support:cardview-v7:25.1.+'
     compile 'com.android.support:recyclerview-v7:25.1.+'
+    //declare Google Play Service as a dependency for google log-in
+    compile 'com.google.android.gms:play-services-auth:9.8.0'
 }
+
+//Add the plugin to your app-level build.gradle for google log-in
+apply plugin: 'com.google.gms.google-services'

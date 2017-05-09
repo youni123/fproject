@@ -1,13 +1,30 @@
 <resources>
+    <!-- Common String -->
     <string name="app_name">FishingTrip</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_feedback">Feedback</string>
     <string name="action_send">Send</string>
 
+    <!-- List of Developers -->
     <string name="name_hs">Hwasub Lee</string>
     <string name="name_sy">Sangyoun Youn</string>
     <string name="name_dh">Donghyun Moon</string>
     <string name="name_sj">Sungjin Sim</string>
+
+    <!-- Sign-in -->
+    <string name="signin_title_text">Google Sign-In</string>
+
+    <!-- Sign-in status messages -->
+    <string name="signed_in_fmt">Welcome, %s</string>
+    <string name="signed_out">Signed out</string>
+    <string name="loading">Loading…</string>
+
+    <!-- Content Description for images -->
+    <string name="desc_google_icon">Google Logo</string>
+
+    <!-- Button labels -->
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Disconnect</string>
 
 </resources>

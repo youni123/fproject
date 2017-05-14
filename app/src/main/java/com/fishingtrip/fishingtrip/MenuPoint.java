@@ -74,7 +74,7 @@ public class MenuPoint  extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_feedback, menu);
+        getMenuInflater().inflate(R.menu.main_point, menu);
         return true;
     }
 
@@ -87,9 +87,12 @@ public class MenuPoint  extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            //Toast.makeText(MenuPoint.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MenuPoint.this, Feedback.class);
             startActivity(intent);
+            return true;
+        }
+        else if(id == R.id.action_map){
+            Toast.makeText(MenuPoint.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
             return true;
         }
 

@@ -75,7 +75,7 @@ public class MenuReservation  extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_feedback, menu);
+        getMenuInflater().inflate(R.menu.main_reservation, menu);
         return true;
     }
 
@@ -86,11 +86,17 @@ public class MenuReservation  extends AppCompatActivity{
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            //Toast.makeText(MenuReservation.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MenuReservation.this, Feedback.class);
             startActivity(intent);
+            return true;
+        }
+        else if(id == R.id.action_search){
+            Toast.makeText(MenuReservation.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if(id == R.id.action_map){
+            Toast.makeText(MenuReservation.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
             return true;
         }
 

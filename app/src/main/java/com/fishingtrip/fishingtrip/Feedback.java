@@ -18,14 +18,22 @@ public class Feedback extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
 
-        //Add back button to ActionBar
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar_feedback);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Feedback");
+        //replace close button, not up button
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_close_grey_24dp);
+    }
+
+    //close this activity as oppose to navigating up
+    @Override
+    public boolean onSupportNavigateUp(){
+        this.finish();
+        return false;
     }
 
     @Override

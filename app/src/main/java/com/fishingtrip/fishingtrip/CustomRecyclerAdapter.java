@@ -12,13 +12,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAdapter.ViewHolder> {
-    private ArrayList<DestinationData> mDataset;
+    private ArrayList<ItemDestination> mDataset_destnation;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
+    // Provide a suitable constructor (depends on the kind of dataset)
+    public CustomRecyclerAdapter(ArrayList<ItemDestination> myDataset) {
+        this.mDataset_destnation = myDataset;
+    }
+
+    //Provide a reference to the views for each data item
+    //Complex data items may need more than one view per item, and
+    //you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
         private CardView cardView;
         public ImageView mImageView;
         public TextView mDestinationTextView;
@@ -31,11 +35,6 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
             mDestinationTextView = (TextView)itemView.findViewById(R.id.cv_dest_text);
             mDetailTextView = (TextView)itemView.findViewById(R.id.cv_dest_text_detail);
         }
-    }
-
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public CustomRecyclerAdapter(ArrayList<DestinationData> myDataset) {
-        mDataset = myDataset;
     }
 
     // Create new views (invoked by the layout manager)
@@ -54,11 +53,11 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.mDestinationTextView.setText(mDataset.get(position).destination);
-        holder.mDetailTextView.setText(mDataset.get(position).detail);
-        holder.mImageView.setImageResource(mDataset.get(position).img);
+        //get element from your mDataset at this position
+        //replace the contents of the view with that element
+        holder.mDestinationTextView.setText(mDataset_destnation.get(position).destination);
+        holder.mDetailTextView.setText(mDataset_destnation.get(position).detail);
+        holder.mImageView.setImageResource(mDataset_destnation.get(position).img);
 
         //onClickListener
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -69,21 +68,10 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
         });
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+    // Return the size of your mDataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.size();
-    }
-}
-
-class DestinationData{
-    public String destination;
-    public String detail;
-    public int img;
-    public DestinationData(String text_dest, String text_detail, int img){
-        this.destination = text_dest;
-        this.detail = text_detail;
-        this.img = img;
+        return mDataset_destnation.size();
     }
 }
 

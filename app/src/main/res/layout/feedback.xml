@@ -15,10 +15,28 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="feedback"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/blue_grey_500">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="메일 송신자"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="메일 제목"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:text="스크린 캡쳐 및 의견 작성"
+            android:background="#FFFFFF"/>
+
+    </LinearLayout>
 
 </LinearLayout>

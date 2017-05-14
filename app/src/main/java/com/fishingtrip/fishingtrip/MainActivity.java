@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<DestinationData> destinationSet;
+    private ArrayList<ItemDestination> destinationSet;
     //[END]CardView
 
     //For user profile
-    private UserProfileInfo upi = new UserProfileInfo();
-    private TextView mUserName;
-    private TextView mUserEmail;
+    public UserProfileInfo upi = new UserProfileInfo();
+    public TextView mUserName;
+    public TextView mUserEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
         mRecyclerView.setAdapter(mAdapter);
 
         //여기에서 추가
-        destinationSet.add(new DestinationData("안면도", "충남 태안군 안면읍", R.drawable.ic_test_transparent_24dp));
+        destinationSet.add(new ItemDestination("안면도", "충남 태안군 안면읍", R.drawable.ic_test_transparent_24dp));
         //[END]CardView
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //Get profile information and Set user information in navigation header
+        //사용자 정보는 나중에 global 변수처럼 사용해야 함(수정 필요)
         upi = (UserProfileInfo)getIntent().getSerializableExtra("profile");
         if(upi != null){
             View nav_header_main = navigationView.getHeaderView(0);

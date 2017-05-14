@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.android.tools.build:gradle:2.3.2'
         //Add the dependency to your project-level build.gradle for google log-in
         classpath 'com.google.gms:google-services:3.0.0'
 

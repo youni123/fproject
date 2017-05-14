@@ -5,12 +5,24 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_feedback">Feedback</string>
     <string name="action_send">Send</string>
+    <string name="action_search">Search</string>
+    <string name="action_map">Map</string>
 
     <!-- List of Developers -->
     <string name="name_hs">Hwasub Lee</string>
     <string name="name_sy">Sangyoun Youn</string>
     <string name="name_dh">Donghyun Moon</string>
     <string name="name_sj">Sungjin Sim</string>
+
+    <string name="email_hs">whatsup0323@gmail.com</string>
+    <string name="email_sy">youni123@gmail.com</string>
+    <string name="email_dh">ozarwork@gmail.com</string>
+    <string name="email_sj">ssj010678@gmail.com</string>
+
+    <string name="role_hs">Director and App Developer</string>
+    <string name="role_sy">App Developer</string>
+    <string name="role_dh">Server Developer</string>
+    <string name="role_sj">Producer and Tester</string>
 
     <!-- Sign-in -->
     <string name="signin_title_text">Google Sign-In</string>

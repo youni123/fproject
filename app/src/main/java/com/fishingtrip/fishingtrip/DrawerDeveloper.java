@@ -1,5 +1,6 @@
 package com.fishingtrip.fishingtrip;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -8,65 +9,71 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class DrawerDeveloper extends AppCompatActivity {
+    Context mContext;
+    RecyclerView mRecyclerView;
+    RecyclerView.Adapter mAdapter;
+    RecyclerView.LayoutManager mLayoutManager;
+    ArrayList<ItemDeveloper> developerSet;
+    public String tab = "developer";
+
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_developer);
 
-        //Add back button to ActionBar
+        //Set up toolbar as actionbar - toolbar is defined in the layout file
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar_developer);
         setSupportActionBar(toolbar);
-
+        //Get a support ActionBar corresponding to this toolbar
         ActionBar actionBar = getSupportActionBar();
+        //Enable the Up button
         actionBar.setDisplayHomeAsUpEnabled(true);
+        //Set the title in appbar
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Developer");
 
-        //Recycle view 로 변경할 것!
-        ListView listview ;
-        ListViewAdapter_developer adapter;
+        mContext = getApplicationContext();
 
-        //Adapter 생성
-        adapter = new ListViewAdapter_developer() ;
+        //[START]CardView
+        mRecyclerView = (RecyclerView) findViewById(R.id.developer_list);
+        //use this setting to improve performance if you know that changes
+        //in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
 
-        //리스트뷰 참조 및 Adapter 달기
-        listview = (ListView) findViewById(R.id.list_developer);
-        listview.setAdapter(adapter);
+        //Everything in the R class is a reference, hence it's just defined as an int
+        //We have to use getString() to actual string value
+        developerSet = new ArrayList<>();
+        developerSet.add(new ItemDeveloper(mContext.getString(R.string.name_hs), mContext.getString(R.string.role_hs), mContext.getString(R.string.email_hs), R.drawable.ic_mail_outline_grey_24dp));
+        developerSet.add(new ItemDeveloper(mContext.getString(R.string.name_sj), mContext.getString(R.string.role_sj), mContext.getString(R.string.email_sj), R.drawable.ic_mail_outline_grey_24dp));
+        developerSet.add(new ItemDeveloper(mContext.getString(R.string.name_sy), mContext.getString(R.string.role_sy), mContext.getString(R.string.email_sy), R.drawable.ic_mail_outline_grey_24dp));
+        developerSet.add(new ItemDeveloper(mContext.getString(R.string.name_dh), mContext.getString(R.string.role_dh), mContext.getString(R.string.email_dh), R.drawable.ic_mail_outline_grey_24dp));
 
-        //개발자 추가.
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_email_black_24dp),getString(R.string.name_hs), "Director&Developer") ;
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_email_black_24dp),getString(R.string.name_sj), "Producer&Tester") ;
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_email_black_24dp),getString(R.string.name_sy), "Developer") ;
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_email_black_24dp),getString(R.string.name_dh), "Developer") ;
+        //use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        //set LayoutManager to RecyclerView
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
-        //개발자 선택시 메일 발송
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-                //get item
-                ListViewItem item = (ListViewItem) parent.getItemAtPosition(position) ;
-                String titleStr = item.getTitle() ;
-                //To do here!!
-                if(titleStr == getString(R.string.name_hs)){
-
-                }else if(titleStr == getString(R.string.name_sj)){
-
-                }else if(titleStr == getString(R.string.name_sy)){
-
-                }else if(titleStr == getString(R.string.name_dh)){
-
-                }
-            }
-        }) ;
-
+        //specify an adapter
+        mAdapter = new CustomAdapter(developerSet, mContext);
+        mRecyclerView.setAdapter(mAdapter);
+        //[END]CardView
     }
 
     @Override
@@ -92,4 +99,70 @@ public class DrawerDeveloper extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //[START]CardView
+    class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+        private ArrayList<ItemDeveloper> mItems;
+        private Context context;
+
+        // Provide a suitable constructor (depends on the kind of mDataset)
+        public CustomAdapter(ArrayList<ItemDeveloper> myDataset, Context mContext) {
+            context = mContext;
+            this.mItems = myDataset;
+        }
+
+        //Provide a reference to the views for each data item
+        //Complex data items may need more than one view per item, and
+        //you provide access to all the views for a data item in a view holder
+        public class ViewHolder extends RecyclerView.ViewHolder {
+            private CardView cardView;
+            public TextView mNameTextView;
+            public TextView mRoleTextView;
+            public ImageView mImageView;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                cardView = (CardView)itemView.findViewById(R.id.drawer_developer_cv);
+                mNameTextView = (TextView)itemView.findViewById(R.id.dev_name_text);
+                mRoleTextView = (TextView)itemView.findViewById(R.id.dev_role_text);
+                mImageView = (ImageView)itemView.findViewById(R.id.dev_email_icon);
+            }
+        }
+
+        // Create new views (invoked by the layout manager)
+        @Override
+        public CustomAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            // create a new view
+            View v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.cardview_developer, parent, false);
+            // set the view's size, margins, paddings and layout parameters
+
+            CustomAdapter.ViewHolder vh = new CustomAdapter.ViewHolder(v);
+            return vh;
+        }
+
+        // Replace the contents of a view (invoked by the layout manager)
+        public void onBindViewHolder(CustomAdapter.ViewHolder holder, int position) {
+            //get element from your mDataset at this position
+            //replace the contents of the view with that element
+            holder.mNameTextView.setText(mItems.get(position).mName);
+            holder.mRoleTextView.setText(mItems.get(position).mRole);
+            holder.mImageView.setImageResource(mItems.get(position).mImg);
+
+            //onClickListener
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //v.getContext().startActivity(new Intent(v.getContext(),MainMenu.class));
+                }
+            });
+        }
+
+        // Return the size of your mDataset (invoked by the layout manager)
+        @Override
+        public int getItemCount() {
+            return mItems.size();
+        }
+    }
+    //[END]CardView
 }

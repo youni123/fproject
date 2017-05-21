@@ -22,6 +22,12 @@
         <item name="android:background">@drawable/ab_dark_bg</item>
     </style>
 
+    <style name="AppTheme.FeedbackDarkActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/blue_grey_500</item>
+        <item name="colorPrimaryDark">@color/blue_grey_700</item>
+        <item name="colorAccent">@color/teal_500</item>
+    </style>
+
     <style name="AppTheme.LightActionBar">
         <item name="android:background">@drawable/ab_light_bg</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

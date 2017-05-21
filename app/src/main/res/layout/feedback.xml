@@ -18,24 +18,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/blue_grey_500">
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/feedback_sender"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="3dp"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:text="보낸 사람"/>
+
+        <EditText
+            android:id="@+id/feedback_content"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="메일 송신자"/>
+            android:layout_gravity="center_vertical"
+            android:hint="의견을 작성하세요."/>
 
-        <TextView
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/feedback_check"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="메일 제목"/>
+            android:layout_height="48dp"
+            android:layout_marginTop="26dp"
+            android:checked="true"
+            android:text="스크린샷 및 로그 포함"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:text="스크린 캡쳐 및 의견 작성"
-            android:background="#FFFFFF"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="250dp"
+                android:layout_gravity="fill"
+                android:id="@+id/feedback_capture"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="법적고지문"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

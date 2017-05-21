@@ -1,6 +1,8 @@
 package com.fishingtrip.fishingtrip;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -10,23 +12,61 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Feedback extends AppCompatActivity{
+
+    private ImageView mCapturedview;
+    private String mLog;
+    private Bitmap btm;
+
+
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
 
+        //Appbar
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar_feedback);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Feedback");
+
         //replace close button, not up button
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_close_grey_24dp);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
+
+        //screen capture
+        if(getIntent().hasExtra("screenshot")){
+            //bitmap 압축 해제
+            btm = BitmapFactory.decodeByteArray(getIntent().getByteArrayExtra("screenshot"),0,getIntent().getByteArrayExtra("screenshot").length);
+            mCapturedview = (ImageView)findViewById(R.id.feedback_capture);
+            mCapturedview.setImageBitmap(btm);
+        }
+        if(getIntent().hasExtra("adblogs")){
+            mLog = (String)getIntent().getSerializableExtra("adblogs");
+        }
+
+        //checkbox
+        CheckBox checkbox = (CheckBox)findViewById(R.id.feedback_check);
+        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (buttonView.getId() == R.id.feedback_check) {
+                    if (isChecked) {
+
+                    } else {
+
+                    }
+                }
+            }
+        });
     }
 
     //close this activity as oppose to navigating up

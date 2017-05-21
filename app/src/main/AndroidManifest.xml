@@ -90,7 +90,8 @@
         </activity>
 
         <activity android:name=".Feedback"
-            android:parentActivityName="com.fishingtrip.fishingtrip.MainActivity">
+            android:parentActivityName="com.fishingtrip.fishingtrip.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar.Feedback">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>

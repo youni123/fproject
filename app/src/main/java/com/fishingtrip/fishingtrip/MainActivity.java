@@ -1,6 +1,7 @@
 package com.fishingtrip.fishingtrip;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,12 +14,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 import static android.R.attr.data;
@@ -33,6 +38,10 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<ItemDestination> destinationSet;
     //[END]CardView
 
+    //[START] View capture for feedback
+    private DrawerLayout container;
+    //[END]
+
     //For user profile
     public UserProfileInfo upi = new UserProfileInfo();
     public TextView mUserName;
@@ -43,17 +52,21 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //[START] View capture for feedback
+        container = (DrawerLayout)findViewById(R.id.drawer_layout);
+        //[END]
+
         //[START]CardView
         mRecyclerView = (RecyclerView) findViewById(R.id.main_dest_amd);
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
+        //use this setting to improve performance if you know that changes
+        //in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
+        //use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // specify an adapter
+        //specify an adapter
         destinationSet = new ArrayList<>();
         mAdapter = new CustomRecyclerAdapter(destinationSet);
         mRecyclerView.setAdapter(mAdapter);
@@ -76,13 +89,15 @@ public class MainActivity extends AppCompatActivity
 
         //Get profile information and Set user information in navigation header
         //사용자 정보는 나중에 global 변수처럼 사용해야 함(수정 필요)
-        upi = (UserProfileInfo)getIntent().getSerializableExtra("profile");
-        if(upi != null){
-            View nav_header_main = navigationView.getHeaderView(0);
-            mUserName = (TextView)nav_header_main.findViewById(R.id.nav_header_name);
-            mUserName.setText(upi.getPersonDisplayName());
-            mUserEmail = (TextView)nav_header_main.findViewById(R.id.nav_header_email);
-            mUserEmail.setText(upi.getPersonEmail());
+        if(getIntent().hasExtra("profile")){
+            upi = (UserProfileInfo)getIntent().getSerializableExtra("profile");
+            if(upi != null){
+                View nav_header_main = navigationView.getHeaderView(0);
+                mUserName = (TextView)nav_header_main.findViewById(R.id.nav_header_name);
+                mUserName.setText(upi.getPersonDisplayName());
+                mUserEmail = (TextView)nav_header_main.findViewById(R.id.nav_header_email);
+                mUserEmail.setText(upi.getPersonEmail());
+            }
         }
     }
 
@@ -114,6 +129,24 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             //Toast.makeText(MainActivity.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, Feedback.class);
+
+            //[START] View capture for feedback
+            container.buildDrawingCache();
+            Bitmap captureView = container.getDrawingCache();
+            Toast.makeText(MainActivity.this, "Screen is captured!", Toast.LENGTH_LONG).show();
+            //intent 간의 데이터 전송 시 100kb 이하로 제한되어 있어 bitmap 자체를 전달하려 하면
+            //binder transaction 실패 에러가 발생함. string 형태로 변환해서 전달해야 함
+            ByteArrayOutputStream bs = new ByteArrayOutputStream();
+            captureView.compress(Bitmap.CompressFormat.PNG, 50, bs);
+            intent.putExtra("screenshot", bs.toByteArray());
+
+            String logs = "Test: ADB log would be included";
+            intent.putExtra("adblogs", logs);
+            //[END]
+
+            //위에는 layout을 기준으로 캡쳐...나중에 스크린 전체를 캡쳐할 수 있도록 바꿔보자
+            //http://thdev.tech/androiddev/2016/04/09/Android-MediaProjection-Exmple.html
+
             startActivity(intent);
             return true;
         }

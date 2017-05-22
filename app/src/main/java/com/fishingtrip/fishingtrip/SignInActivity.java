@@ -2,6 +2,7 @@ package com.fishingtrip.fishingtrip;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -76,12 +77,20 @@ public class SignInActivity extends AppCompatActivity implements
         super.onStart();
 
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
+        //사용자 로그인 여부를 나타내는 SharedPreference
+        SharedPreferences isSignedIn_pref = getSharedPreferences("SIGNED_IN", MODE_PRIVATE);
+        SharedPreferences.Editor isSignedIn_editor = isSignedIn_pref.edit();
+
         if (opr.isDone()) {
             // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
             // and the GoogleSignInResult will be available instantly.
             Log.d(TAG, "Got cached sign-in");
             GoogleSignInResult result = opr.get();
             handleSignInResult(result);
+
+            //로그인이 확인되면 SharedPreference 에 flag 로 저장
+            isSignedIn_editor.putBoolean("SIGNED_IN", true);
+            isSignedIn_editor.commit();
         } else {
             // If the user has not previously signed in on this device or the sign-in has expired,
             // this asynchronous branch will attempt to sign in the user silently.  Cross-device
@@ -94,6 +103,10 @@ public class SignInActivity extends AppCompatActivity implements
                     handleSignInResult(googleSignInResult);
                 }
             });
+
+            //로그인이 안되어 있거나 expired 되면 SharedPreference flag 삭제
+            isSignedIn_editor.remove("SIGNED_IN");
+            isSignedIn_editor.commit();
         }
     }
 
@@ -130,19 +143,23 @@ public class SignInActivity extends AppCompatActivity implements
             mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             updateUI(true);
 
-            //make object for user profile
-            String displayname = acct.getDisplayName();
-            String email = acct.getEmail();
-            final UserProfileInfo upi = new UserProfileInfo(displayname, email);
+            //사용자 로그인 정보(display name, email)를 전역변수로 사용하기 위해 SharedPreferences 사용
+            SharedPreferences uName_pref = getSharedPreferences("USER_NAME", MODE_PRIVATE);
+            SharedPreferences uEmail_pref = getSharedPreferences("USER_EMAIL", MODE_PRIVATE);
+            //SharedPreferences 에 사용자 정보 저장
+            SharedPreferences.Editor uName_editor = uName_pref.edit();
+            uName_editor.putString("USER_NAME", acct.getDisplayName());
+            uName_editor.commit();
+            SharedPreferences.Editor uEmail_editor = uEmail_pref.edit();
+            uEmail_editor.putString("USER_EMAIL", acct.getEmail());
+            uEmail_editor.commit();
 
-            //delay 1.5 sec
+            //delay 1500 ms
             Handler handler = new Handler();
             handler.postDelayed((new Runnable() {
                 @Override
                 public void run() {
                     Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-                    //put profile object to MainActivity
-                    intent.putExtra("profile", upi);
                     //clear activity stack to avoid back to sign-in activity from main activity
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

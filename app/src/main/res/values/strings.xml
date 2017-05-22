@@ -39,4 +39,7 @@
     <string name="sign_out">Sign Out</string>
     <string name="disconnect">Disconnect</string>
 
+
+    <!-- Feedback -->
+    <string name="feedback_sender">보낸 사람: %s</string>
 </resources>

@@ -1,8 +1,11 @@
 package com.fishingtrip.fishingtrip;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -38,23 +41,10 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<ItemDestination> destinationSet;
     //[END]CardView
 
-    //[START] View capture for feedback
-    private DrawerLayout container;
-    //[END]
-
-    //For user profile
-    public UserProfileInfo upi = new UserProfileInfo();
-    public TextView mUserName;
-    public TextView mUserEmail;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //[START] View capture for feedback
-        container = (DrawerLayout)findViewById(R.id.drawer_layout);
-        //[END]
 
         //[START]CardView
         mRecyclerView = (RecyclerView) findViewById(R.id.main_dest_amd);
@@ -87,18 +77,32 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //Get profile information and Set user information in navigation header
-        //사용자 정보는 나중에 global 변수처럼 사용해야 함(수정 필요)
-        if(getIntent().hasExtra("profile")){
-            upi = (UserProfileInfo)getIntent().getSerializableExtra("profile");
-            if(upi != null){
-                View nav_header_main = navigationView.getHeaderView(0);
-                mUserName = (TextView)nav_header_main.findViewById(R.id.nav_header_name);
-                mUserName.setText(upi.getPersonDisplayName());
-                mUserEmail = (TextView)nav_header_main.findViewById(R.id.nav_header_email);
-                mUserEmail.setText(upi.getPersonEmail());
-            }
+        //user information
+        String user_name;
+        String user_email;
+        TextView mUserName;
+        TextView mUserEmail;
+
+        //로그인 확인되면 저장된 사용자 정보를 표시, 그렇지 않으면 default 값 표시
+        SharedPreferences isSignedIn_pref = getSharedPreferences("SIGNED_IN", MODE_PRIVATE);
+        if(isSignedIn_pref.getBoolean("SIGNED_IN", true)){
+            //Get user information via SharedPreference
+            SharedPreferences uName_pref = getSharedPreferences("USER_NAME", MODE_PRIVATE);
+            SharedPreferences uEmail_pref = getSharedPreferences("USER_EMAIL", MODE_PRIVATE);
+            user_name = uName_pref.getString("USER_NAME", "");
+            user_email = uEmail_pref.getString("USER_EMAIL", "");
+        }else{
+            user_name = "Guest";
+            user_email = "Guest@fishingtrip.com";
         }
+
+        //Set user information in navigation header
+        View nav_header_main = navigationView.getHeaderView(0);
+        mUserName = (TextView)nav_header_main.findViewById(R.id.nav_header_name);
+        mUserName.setText(user_name);
+        mUserEmail = (TextView)nav_header_main.findViewById(R.id.nav_header_email);
+        mUserEmail.setText(user_email);
+
     }
 
     @Override
@@ -127,25 +131,29 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            //Toast.makeText(MainActivity.this, "Not implemented yet", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, Feedback.class);
 
-            //[START] View capture for feedback
-            container.buildDrawingCache();
-            Bitmap captureView = container.getDrawingCache();
-            Toast.makeText(MainActivity.this, "Screen is captured!", Toast.LENGTH_LONG).show();
+            //[START] screen capture for feedback
+            View vScreen = getWindow().getDecorView().getRootView();
+            vScreen.setDrawingCacheEnabled(true);
+            Bitmap btm_screen = Bitmap.createBitmap(vScreen.getDrawingCache());
+            //작업 후 다시 false 로 세팅
+            //그렇지 않으면 view 를 생성할 때마다 Cache 에 저장하여 성능 문제가 있을 수 있음
+            vScreen.setDrawingCacheEnabled(false);
+
+            Toast.makeText(getApplicationContext(), "Screen is captured!", Toast.LENGTH_LONG).show();
             //intent 간의 데이터 전송 시 100kb 이하로 제한되어 있어 bitmap 자체를 전달하려 하면
             //binder transaction 실패 에러가 발생함. string 형태로 변환해서 전달해야 함
             ByteArrayOutputStream bs = new ByteArrayOutputStream();
-            captureView.compress(Bitmap.CompressFormat.PNG, 50, bs);
+            btm_screen.compress(Bitmap.CompressFormat.PNG, 50, bs);
+            //intend 로 전달
             intent.putExtra("screenshot", bs.toByteArray());
-
-            String logs = "Test: ADB log would be included";
-            intent.putExtra("adblogs", logs);
             //[END]
 
-            //위에는 layout을 기준으로 캡쳐...나중에 스크린 전체를 캡쳐할 수 있도록 바꿔보자
-            //http://thdev.tech/androiddev/2016/04/09/Android-MediaProjection-Exmple.html
+            //adb log 추출하여 저장하는 코드 추가
+            String logs = "Test: ADB log would be included";
+            //intend 로 전달
+            intent.putExtra("adblogs", logs);
 
             startActivity(intent);
             return true;

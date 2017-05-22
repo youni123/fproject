@@ -1,6 +1,7 @@
 package com.fishingtrip.fishingtrip;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -23,7 +24,7 @@ public class Feedback extends AppCompatActivity{
     private ImageView mCapturedview;
     private String mLog;
     private Bitmap btm;
-
+    private TextView mSenderTextView;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -41,6 +42,12 @@ public class Feedback extends AppCompatActivity{
         //replace close button, not up button
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
+
+        //SharedPreference 계정 정보로부터 sender 설정
+        SharedPreferences uEmail_pref = getSharedPreferences("USER_EMAIL", MODE_PRIVATE);
+        String user_email = uEmail_pref.getString("USER_EMAIL", "");
+        mSenderTextView = (TextView)findViewById(R.id.feedback_sender);
+        mSenderTextView.setText(getString(R.string.feedback_sender, user_email));
 
         //screen capture
         if(getIntent().hasExtra("screenshot")){
